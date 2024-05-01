@@ -7,12 +7,12 @@
     <script>
         //getting computer choice//
         function getComputerChoice() {
-            let choice = Math.random();
+            let computerChoice= Math.random();
 
-            if (choice < 1/3) {
+            if (computerChoice < 1/3) {
                 return "rock";
             }
-            else if (choice < 2/3) {
+            else if (computerChoice < 2/3) {
                 return "paper";
             }
             else {
@@ -20,7 +20,57 @@
             }
         }
         
-        console.log(getComputerChoice());
+        //getting human choice//
+        function getHumanChoice(){
+            let input = prompt("Rock, paper, scissors!");
+            let humanChoice = input.toLowerCase();
+
+            if (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
+                alert("Please enter 'rock', 'paper', 'scissors'");
+                return getHumanChoice();
+            }
+            else {
+                return humanChoice;
+            }
+        }
+
+        //declare the players score variables//
+        let humanScore = 0;
+        let computerScore = 0;
+
+        let round = 0;
+
+        //logic to play a single round//
+        function playGame() {
+        
+            function playRound(humanChoice, computerChoice) {
+                if (humanChoice === computerChoice) {
+                    alert("It's a draw!");
+                }
+                else if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "paper" && computerChoice == "rock") || (humanChoice == "scissors" && computerChoice == "paper")) {
+                    ++humanScore;
+                    alert("You win! The score is You: " + humanScore + ", Computer: " + computerScore);
+                    ++round;
+                }
+                else {
+                    ++computerScore;
+                    alert("You lose! The score is You: " + humanScore + ", Computer: " + computerScore);
+                    ++round;
+                }
+
+                if (round == 4) {
+                    alert("Game over");
+                }
+                else {
+                    playGame();
+                }
+            }
+
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+
+            playRound(humanSelection, computerSelection);
+        }
 
     </script>
 </head>
