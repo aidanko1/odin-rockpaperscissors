@@ -80,32 +80,31 @@
             playRound(humanSelection, computerSelection);
         }
     */
+        // Function: get computer choice
+        function getComputerChoice() {
+            let computerChoice = Math.random();
 
-
-
-
-
-
-
-
-
+            if(computerChoice < 1/3) {
+                return "rock";
+            } else if (computerChoice < 2/3) {
+                return "paper";
+            } else {
+                return "scissors"
+            }
+        }
 
 
     </script>
 </head>
 <body>
     <span class="scoreboard">
-        <div class="scores" id="playerScore">
-
-        </div>
-        <div class="scores" id="computerScore">
-
-        </div>
-
+        <p>Player: <span id="playerScore"></span></p>
+        <p>Computer: <span id="computerScore"></span></p>
     </span>
-
-
-
-
+    <span class="threeButtons">
+        <button class="button" id="rock">Rock</button>
+        <button class="button" id="paper">Paper</button>
+        <button class="button" id="scissors">Scissors</button>
+    </span>
 </body>
 </html>
