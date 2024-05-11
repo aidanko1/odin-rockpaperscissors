@@ -80,20 +80,43 @@
             playRound(humanSelection, computerSelection);
         }
     */
-        // Function: get computer choice
+   const rock = "rock";
+   const paper = "paper";
+   const scissors = "scissors";
+   
+   // Function: get computer choice
         function getComputerChoice() {
             let computerChoice = Math.random();
 
             if(computerChoice < 1/3) {
-                return "rock";
+                return rock;
             } else if (computerChoice < 2/3) {
-                return "paper";
+                return paper;
             } else {
-                return "scissors"
+                return scissors;
             }
         }
 
+    // Function: get human choice
+    const humanRock = document.getElementById("rock");
+    const humanPaper = document.getElementById("paper");
+    const humanScissors = document.getElementById("scissors");
 
+    humanRock.addEventListener('click', function (){
+        return rock;
+    });
+    humanPaper.addEventListener('click', function(){
+        return paper;
+    });
+    humanScissors.addEventListener('click', function(){
+        return scissors;
+    });
+
+
+
+
+
+    
     </script>
 </head>
 <body>
