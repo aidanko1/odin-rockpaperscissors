@@ -39,7 +39,6 @@
             return computerChoice;
         }
 
-        
         // Functions: get human choice
         let humanChoice = "";
         
@@ -71,8 +70,10 @@
 
         //Function: play one round and updating results text
         const result = document.getElementById("text");
+        result.textContent = "Welcome to Rock, Paper, Scissors. First to 5 wins!";
 
         function playRound (humanSelection, computerSelection) {
+
             if (humanSelection === computerSelection) {
                 result.textContent = "It's a draw!";
             } else if ((humanSelection === rock && computerSelection === paper) || (humanSelection === paper && computerSelection === rock) || (humanSelection === scissors && computerSelection === paper )) {
@@ -85,8 +86,19 @@
 
             humanScoreDisplay.textContent = humanScore;
             computerScoreDisplay.textContent = computerScore;
+
+            if (humanScore === 5) {
+                result.textConten = "Congratulations! You win the game!";
+                humanScore = 0;
+                computerScore = 0;
+            } else if (computerScore === 5) {
+                result.textContent = "Computer wins the game. Better luck next time!";
+                humanScore = 0;
+                computerScore = 0;
+            }
+
         }
-        
+
         // Implementing functions to buttons
         const humanRock = document.getElementById("rock");
         const humanPaper = document.getElementById("paper");
@@ -108,8 +120,5 @@
             playRound(humanSelection, computerSelection);
         })
     
-
-
-
     </script>
 </html>
